@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lastfm", "lastfm\lastfm.csproj", "{D4AF8DA3-9781-4A3E-91CC-5EB47844F83E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LastfmprojTests", "LastfmprojTests\LastfmprojTests.csproj", "{1D00C515-4758-42CA-BD9E-6ADDA69047A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4AF8DA3-9781-4A3E-91CC-5EB47844F83E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4AF8DA3-9781-4A3E-91CC-5EB47844F83E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4AF8DA3-9781-4A3E-91CC-5EB47844F83E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4AF8DA3-9781-4A3E-91CC-5EB47844F83E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D00C515-4758-42CA-BD9E-6ADDA69047A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D00C515-4758-42CA-BD9E-6ADDA69047A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D00C515-4758-42CA-BD9E-6ADDA69047A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D00C515-4758-42CA-BD9E-6ADDA69047A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {07ADEDAD-387C-4CD5-975D-E51D1D96B354}
+	EndGlobalSection
+EndGlobal
