@@ -96,7 +96,6 @@ namespace lastfm
             {
                 db.Tracks.Add(new Track(track.Name, track.AlbumName, track.ArtistName, Convert.ToInt32(track.Duration.Value.TotalSeconds)));
             }
-            //db.Tracks.Add(new Track("wew", "www", "dddd", 45));
             db.SaveChanges();
             //List<Track> tracks = db.Tracks.Distinct().ToList();
             
@@ -122,18 +121,28 @@ namespace lastfm
         {
             LastfmStuff lastfm = new LastfmStuff(args[1], args[2],db);
             int num = Convert.ToInt32(args[0]);
-            Console.WriteLine(num + " " + args[1]);
+            Console.WriteLine("Arguments you have passed: " + args[1] + " " + args[2]);
             string dir = @"D:\Music\Global Communication";
+            string description = System.IO.File.ReadAllText(@"description.txt");
+            
             while (true)
             {
-                Console.WriteLine("Welcome!");
-
-                Console.ReadLine();
-                //db_method();
-                //method(num, args[1], args[2]).Wait();
-                List<Track> favoritesList = lastfm.GetFavoriteTracksTask(num).Result;
-                //lastfm.ShowInBrowser(lastfm.GetNRandom(favoritesList, 10));
-                lastfm.ScrobbleFromFolder(dir).Wait();
+                Console.WriteLine(description);
+                int select = Console.Read();
+                switch (select)
+                {
+                    case 1:
+                        List<Track> favoritesList = lastfm.GetFavoriteTracksTask(num).Result;
+                        lastfm.ShowInBrowser(lastfm.GetNRandom(favoritesList, 10));
+                        Console.WriteLine("Success");
+                        break;
+                    case 2:
+                        lastfm.ScrobbleFromFolder(dir).Wait();
+                        Console.WriteLine("Success");
+                        break;
+                    default:
+                        break;
+                }
             }
 
         }
