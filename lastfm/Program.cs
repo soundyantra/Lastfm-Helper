@@ -128,11 +128,13 @@ namespace lastfm
             while (true)
             {
                 Console.WriteLine(description);
-                int select = Console.Read();
+                int select = Convert.ToInt32(Console.ReadLine());
                 switch (select)
                 {
                     case 1:
-                        List<Track> favoritesList = lastfm.GetFavoriteTracksTask(num).Result;
+                        List<Track> favoritesList =  lastfm.GetFavoriteTracksTask(num).Result;
+                        //var ok = lastfm.GetFavoriteTracksTask(num).GetAwaiter();
+                        //favoritesList=ok.GetResult();
                         lastfm.ShowInBrowser(lastfm.GetNRandom(favoritesList, 10));
                         Console.WriteLine("Success");
                         break;
