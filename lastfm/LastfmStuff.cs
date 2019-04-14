@@ -37,7 +37,7 @@ namespace lastfm
         public async Task<List<Track>> GetFavoriteTracksTask(int mode) //hmhmhmhmhm
         {
             var suc = await client.Auth.GetSessionTokenAsync(username, password);
-
+            //TODO: somehow it gets always gets pink floyd kek"
             switch (mode)
             {
                 case 0:
@@ -99,9 +99,19 @@ namespace lastfm
 
             foreach (var item in files)
             {
-                TagLib.File file = TagLib.File.Create(item);
-                Scrobble s = new Scrobble(file.Tag.FirstArtist, file.Tag.Album, file.Tag.Title, DateTimeOffset.Now);
-                var recomendsclient = await client.Track.ScrobbleAsync(s);
+                string ext = item.Substring(item.LastIndexOf(".")+1);
+                //string ext2 = item.Substring(item.LastIndexOf("."));
+                if ( ext=="mp3"|ext=="flac"|ext=="ogg")
+                {
+                    TagLib.File file = TagLib.File.Create(item);
+                    Scrobble s = new Scrobble(file.Tag.FirstArtist, file.Tag.Album, file.Tag.Title, DateTimeOffset.Now);
+                    var recomendsclient = await client.Track.ScrobbleAsync(s);
+                }
+                
+                
+                //TagLib.File file = TagLib.File.Create(item);
+                //Scrobble s = new Scrobble(file.Tag.FirstArtist, file.Tag.Album, file.Tag.Title, DateTimeOffset.Now);
+                //var recomendsclient = await client.Track.ScrobbleAsync(s);
             }
 
         }

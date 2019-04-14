@@ -116,13 +116,23 @@ namespace lastfm
 
         }
 
+        public static string DeleteQuatations(string s)
+        {
+            if (s[0]=='"'&&s[s.Length-1]=='"')
+            {
+                s=s.Remove(0, 1);
+                s = s.Remove(s.Length-1);
+            }
+
+            return s;
+        }
 
         static void Main(string[] args)
         {
             LastfmStuff lastfm = new LastfmStuff(args[1], args[2],db);
             int num = Convert.ToInt32(args[0]);
             Console.WriteLine("Arguments you have passed: " + args[1] + " " + args[2]);
-            string dir = @"D:\Music\Global Communication";
+            string dir = @"D:\Music\Substrata Remastered\CD1 Substrata";
             string description = System.IO.File.ReadAllText(@"description.txt");
             
             while (true)
@@ -139,7 +149,10 @@ namespace lastfm
                         Console.WriteLine("Success");
                         break;
                     case 2:
-                        lastfm.ScrobbleFromFolder(dir).Wait();
+                        Console.WriteLine("Enter FolderName");
+                        dir = Console.ReadLine();
+                        dir = DeleteQuatations(dir);
+                        lastfm.ScrobbleFromFolder(@dir).Wait();
                         Console.WriteLine("Success");
                         break;
                     default:
